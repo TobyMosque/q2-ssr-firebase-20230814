@@ -9,8 +9,8 @@
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "quasar dev",
-    "build": "quasar build"
+    "dev": "cross-env QENV=dev quasar dev -m ssr",
+    "build": "cross-env QENV=dev quasar build -m ssr"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
@@ -35,6 +35,7 @@
     "@vueuse/core": "^10.3.0",
     "autoprefixer": "^10.4.2",
     "axios": "^1.4.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^9.0.0",

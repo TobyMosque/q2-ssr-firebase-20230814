@@ -16,6 +16,11 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { QuasarResolver } from 'unplugin-vue-components/resolvers';
 
+import { readFileSync } from 'fs';
+
+const envName = process.env.QENV || '';
+const env = JSON.parse(readFileSync(`./envs/${envName}.json`));
+
 export default configure(function (/* ctx */) {
   return {
     eslint: {
@@ -73,7 +78,7 @@ export default configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: env,
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
